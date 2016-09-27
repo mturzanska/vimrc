@@ -1,5 +1,5 @@
-set nocompatible              " required
-filetype off                  " required
+set nocompatible  " turn off vi compatibility
+filetype off
 
 highlight ColorColumn ctermbg=gray
 set colorcolumn=100
@@ -13,28 +13,18 @@ syntax on
 filetype plugin indent on
 set nu
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set vundle location
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-" alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle
-" instead of Plugin)
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
-let python_highlight_all=1
-
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 
+let python_highlight_all=1
+filetype plugin indent on
+
+"  
