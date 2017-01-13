@@ -3,6 +3,10 @@ filetype off
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
 
 highlight ColorColumn ctermbg=gray
 set colorcolumn=100
