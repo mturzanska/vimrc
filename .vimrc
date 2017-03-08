@@ -7,9 +7,12 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
+set tags=./tags,tags;$HOME
 
 highlight ColorColumn ctermbg=gray
 set colorcolumn=100
+
+nmap <F6> :TagbarToggle<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -25,6 +28,8 @@ call vundle#rc()
 
 Plugin 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'majutsushi/tagbar'
+Plugin 'craigemery/vim-autotag'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/syntastic'
@@ -33,11 +38,11 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 
 let python_highlight_all=1
+let g:ctrlp_working_path_mode=''
 syntax enable
-:set t_Co=256
+set t_Co=256
 let g:solarized_termcolors=256
 set background=light
 colorscheme solarized
 filetype plugin indent on
-
-"  
+autocmd BufWritePre *.py %s/\s\+$//e
