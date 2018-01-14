@@ -1,5 +1,8 @@
+execute pathogen#infect()
 set nocompatible  " turn off vi compatibility
-filetype off
+filetype plugin indent off
+syntax off
+
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -10,9 +13,8 @@ set hlsearch
 set tags=./tags,tags;$HOME
 
 highlight ColorColumn ctermbg=gray
-set colorcolumn=100
-
-nmap <F6> :TagbarToggle<CR>
+set colorcolumn=70
+nmap <F8> :TagbarToggle<CR>
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -22,11 +24,10 @@ nnoremap <C-H> <C-W><C-H>
 filetype plugin indent on
 set nu
 
-" set vundle location
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'craigemery/vim-autotag'
@@ -35,14 +36,16 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'mindriot101/vim-yapf'
+Plugin 'elixir-editors/vim-elixir'
 
 let python_highlight_all=1
 let g:ctrlp_working_path_mode=''
+let g:yapf_style="pep8"
 syntax enable
-set t_Co=256
+:set t_Co=256
 let g:solarized_termcolors=256
-set background=light
+set background=dark
 colorscheme solarized
 filetype plugin indent on
-autocmd BufWritePre *.py %s/\s\+$//e
+let g:ctrlp_working_path_mode = 'ra'
